@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI - Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        * {
+            margin: 0;
+            overflow: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #F4F3FF;
+            --dark-btn: #081854;
+            --button-bg-light: #f5f5f5;
+            --button-bg-dark: #333333;
+            --text-light: #000000;
+            --text-dark: #ffffff;
+            --bg-light: #ffffff;
+            --bg-dark: #1C1C1C;
+        }
+
+        body {
+            font-family: "Inter", serif;
+            background-color: rgb(222, 222, 222);
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .started {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            background-color: var(--primary);
+            min-width: 393px;
+            width: 393px;
+            height: 700px;
+            border-radius: 30px;
+            transition: all 0.5s ease;
+        }
+
+        .started .image img {
+            width: 296px;
+            height: 251px;
+        }
+
+        .started .heading h1 {
+            font-size: 30px;
+            font-style: italic;
+            font-weight: 700;
+        }
+
+        .started .content {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .started .content h2 {
+            font-size: 25px;
+            font-style: bold;
+            margin-bottom: 8px;
+        }
+
+        .started .content p {
+            font-size: 15px;
+            color: #C6C3F9;
+        }
+
+        .started button {
+            border: none;
+            outline: 0;
+            height: 70px;
+            width: 300px;
+            border-radius: 63px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        /* Calucator */
+        .calculator {
+            min-width: 397px;
+            width: 397px;
+            height: 700px;
+            background-color: var(--secondary);
+            border-radius: 30px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 50px 0;
+            color: black;
+            transition: all 0.5s ease;
+        }
+
+        .calculator h3 {
+            font-size: 17px;
+            color: black;
+            font-weight: 400;
+        }
+
+        .feilds {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            gap: 15px;
+            width: 333px;
+            height: 539px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .top {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .age {
+            flex: 1;
+            width: 156px;
+            height: 150px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        .age p,
+        .weight p,
+        .mid p {
+            color: #2F2E41;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        .age input,
+        .weight input,
+        .mid input {
+            text-align: center;
+            width: 78px;
+            height: 70px;
+            font-size: 53px;
+            outline: 0;
+            border: none;
+            background-color: transparent;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: -10px;
+        }
+
+        .weight {
+            flex: 1;
+            width: 156px;
+            height: 150px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: column;
+        }
+
+        .feilds input::placeholder {
+            color: var(--primary);
+        }
+
+        .mid {
+            height: 180px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bottom {
+            height: 130px;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gender {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calculate-btn,
+        .result button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            outline: 0;
+            height: 70px;
+            width: 300px;
+            border-radius: 63px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .calculator .btns button {
+            outline: 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .calculator .btns button i {
+            font-size: 24px;
+        }
+
+        .mid .btns {
+            display: flex;
+            gap: 30px;
+        }
+
+        .mid .btns button i {
+            font-size: 30px;
+        }
+
+        .mid .btns button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gender-btn-div {
+            width: 136px;
+            height: 40px;
+            background-color: #F4F3FF;
+            border-radius: 63px;
+            display: flex;
+            align-items: center;
+        }
+
+        .gender-btn-div button {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            outline: none;
+            border: none;
+            background-color: var(--primary);
+            cursor: pointer;
+            padding: 2px 4px;
+            transition: all 0.3s linear;
+        }
+
+        .gender-btn-div button.active {
+            transform: translateX(98px);
+        }
+
+        /* Result */
+        .result {
+            min-width: 397px;
+            width: 397px;
+            height: 700px;
+            background-color: var(--secondary);
+            border-radius: 30px;
+            color: #081854;
+            display: none;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .result .result-heading {
+            font-size: 17px;
+            font-weight: 300;
+        }
+
+        .result h4 {
+            font-size: 27px;
+            font-weight: 400;
+        }
+
+        .result .result-display {
+            width: 333px;
+            height: 350px;
+            border-radius: 12px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            /* padding: 15px 0; */
+        }
+
+        .result .result-display h2 .bmi-int {
+            font-size: 140px;
+            font-weight: bolder;
+            color: var(--primary);
+        }
+
+        .result .result-display h2 .bmi-dec {
+            font-size: 42px;
+            font-weight: bolder;
+            color: var(--primary);
+        }
+
+        .bmi-result {
+            font-size: 20px;
+        }
+
+        .result-display .info {
+            font-size: 14px;
+            color: #081854;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="started">
+        <div class="heading">
+            <h1>BMiDO</h1>
+        </div>
+        <div class="image">
+            <img src="./image.png" alt="">
+        </div>
+        <div class="content">
+            <h2>
+                Get Started with <br>
+                Tracking Your Health!
+            </h2>
+            <p>Calculate your BMI and stay on top of your wellness journey, effortlessly.</p>
+        </div>
+        <button class="get-started-btn">Get Started</button>
+    </div>
+
+    <div class="calculator">
+
+        <div>
+            <h3>BMI CALCULATOR</h3>
+        </div>
+
+        <div class="feilds">
+            <div class="top">
+                <div class="age">
+                    <p>Age</p>
+                    <input class="age-inp" type="number" value="0" placeholder="0">
+                    <div class="btns">
+                        <button class="inc age-inc"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="dec age-dec"><i class="fa-solid fa-circle-minus"></i></button>
+                    </div>
+                </div>
+                <div class="weight">
+                    <p>Weight (KG)</p>
+                    <input class="weight-inp" value="0" type="number" placeholder="0">
+                    <div class="btns">
+                        <button class="inc weight-inc"><i class="fa-solid fa-circle-plus"></i></button>
+                        <button class="dec weight-dec"><i class="fa-solid fa-circle-minus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mid">
+                <p>Height (CM)</p>
+                <input class="height-inp" value="0" type="number" placeholder="0">
+
+                <div class="btns">
+                    <button class="inc height-inc">
+                        <span>30cm</span>
+                        <i class="fa-solid fa-circle-plus"></i></button>
+                    <button class="dec height-dec"><i class="fa-solid fa-circle-minus"></i> <span>300cm</span></button>
+                </div>
+
+            </div>
+            <div class="bottom">
+                <p>Gender</p>
+                <div class="gender">
+                    <span>Male</span>
+                    <div class="gender-btn-div">
+                        <button class="gender-btn"></button>
+                    </div>
+                    <span>Female</span>
+                </div>
+            </div>
+
+        </div>
+        <button class="calculate-btn">Calucate BMI</button>
+    </div>
+
+    <div class="result">
+        <h3 class="result-heading">BMI CALCULATOR</h3>
+        <h4>Body Mass Index</h4>
+        <div class="result-display">
+            <p class="bmi-result">BMI Result</p>
+            <h2 class="result-value"> <span class="bmi-int"></span><span class="bmi-dec"></span></h2>
+            <h3 class="result-text">Normal BMI</h3>
+            <p class="info">Underweight: BMI less than 18.5<br>
+                Normal weight: BMI 18.5 to 24.9<br>
+                Overweight: BMI 25 to 29.9<br>
+                Obesity: 30 to 40</p>
+        </div>
+        <button class="save-btn">Save Result</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
