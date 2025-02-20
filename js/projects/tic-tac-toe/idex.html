@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC - TAC - TOE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sigmar&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #f22853;
+            --bg-secondary: #fde8ed;
+            --text-primary: #f9d459;
+            --text-secondary: #ffffff;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #f9d459;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+        }
+
+        main {
+            min-width: 350px;
+            width: 380px;
+            height: 700px;
+            background-color: var(--bg-secondary);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .top {
+            width: 85%;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .top .x-turn,
+        .top .o-turn {
+            background-color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            font-size: larger;
+        }
+
+        .top .x-turn .x-emel,
+        .top .o-turn .o-emel {
+            background-color: var(--bg-primary);
+            width: 60px;
+            height: 50px;
+            border-radius: 12px;
+            display: felx;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: "Sigmar", serif;
+            text-shadow: 2px 2px 3px black;
+        }
+
+        .top .x-turn .x-emel{
+            color: var(--text-primary);
+        }
+        .top .o-turn .o-emel{
+            color: white;
+        }
+        .top .result {
+            text-align: center;
+            font-size: 20px;
+            /* padding-inline: 15px; */
+        }
+
+        .top .result .result-elem {
+            color: #f9d459;
+            font-size: 35px;
+            font-weight: 900;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-shadow: 3px 3px 0px black;
+        }
+
+        .top .result .won-elem {
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .bottom {
+            width: 300px;
+            height: 300px;
+            background-color: var(--bg-primary);
+            border-radius: 20px;
+        }
+
+        .bottom .feild {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* padding: 5px; */
+        }
+
+        .bottom .feild div {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: 600;
+            font-family: "Sigmar", serif;
+            color: var(--text-primary);
+            text-shadow: 2px 2px 2px black;
+        }
+        .bottom .feild div:nth-child(2n){
+            color: white;
+        }
+
+        .bottom .feild div:nth-child(3n + 1) {
+            border-left: none;
+        }
+
+        .bottom .feild div:nth-child(3n) {
+            border-right: none;
+        }
+
+        .bottom .feild div:nth-child(7),
+        .bottom .feild div:nth-child(8),
+        .bottom .feild div:nth-child(9) {
+            border-bottom: none;
+        }
+
+        .bottom .feild div:nth-child(1),
+        .bottom .feild div:nth-child(2),
+        .bottom .feild div:nth-child(3) {
+            border-top: none;
+        }
+        .current-turn{
+            padding: 10px 50px;
+            background-color: #f9d459;
+            border-radius: 20px;
+            box-shadow: 3px 3px 3px black;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="top">
+            <div class="x-turn">
+                <p class="name">Sakib</p>
+                <div class="x-emel">
+                    x
+                </div>
+            </div>
+            <div class="result">
+                <p class="won-elem">X</p>
+                <p class="result-elem">Won</p>
+            </div>
+            <div class="o-turn">
+                <p class="name">Sakib</p>
+                <div class="o-emel">
+                    o
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="current-turn">
+                X - Turn
+            </div>
+        </section>
+        <section class="bottom">
+            <div class="feild">
+                <div>X</div>
+                <div>o</div>
+                <div>X</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
