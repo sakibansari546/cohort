@@ -10,7 +10,7 @@ if (!Array.prototype.myMap) {
     }
 
     let O = Object(this);
-    let len = O.length >>> 0;
+    let len = O.length;
 
     if (typeof callback !== "function") {
       throw new TypeError(callback + " is not a function");
@@ -45,7 +45,7 @@ if (!Array.prototype.myFilter) {
     }
 
     let O = Object(this);
-    let len = O.length >>> 0;
+    let len = O.length;
 
     let result = [];
 
@@ -58,21 +58,54 @@ if (!Array.prototype.myFilter) {
   };
 }
 
-let myFilterresult = arr.myFilter((val, i) => val % 2 == 0);
-console.log(myFilterresult);
+// let myFilterresult = arr.myFilter((val, i) => val % 2 == 0);
+// console.log(myFilterresult);
 
 // .Reduce-------
 if (!Array.prototype.myReduce) {
   Array.prototype.myReduce = function (callback, currValue) {
-    for (let i = 0; i < this.length; i++) {
-      currValue = callback(currValue, this[i], i);
+    if (this == null) {
+      throw new TypeError(
+        "Array.prototype.myFilter called on null or undefined"
+      );
+    }
+
+    if (typeof callback !== "function") {
+      throw new TypeError(callback + " is not a function");
+    }
+
+    let O = Object(this);
+    let len = O.length;
+
+    if (currValue == undefined) {
+      currValue = O[0];
+    }
+
+    for (let i = 0; i < len; i++) {
+      currValue = callback(currValue, O[i], i, O);
     }
     return currValue;
   };
 }
 
-let sum = arr.myReduce((acc, val) => (acc = acc + val), 0);
-console.log(sum);
+let activity = [
+  { name: "Sakib", activityCount: 200 },
+  { name: "Piyush", activityCount: 300 },
+  { name: "Jatin", activityCount: 400 },
+  { name: "Alok", activityCount: 100 },
+];
+
+// let sum = arr.myReduce((acc, val) => (acc = acc + val), 0);
+// console.log(sum);
+
+let mostActive = activity.myReduce((acc, user) => {
+    if(acc.activityCount < user.activityCount){
+        acc = user;
+    }
+    return acc
+});
+
+console.log(mostActive);
 
 // .Push---------
 // if (!Array.prototype.myPush) {
@@ -87,7 +120,7 @@ console.log(sum);
 // if (!Array.prototype.myPush) {
 //   Array.prototype.myPush = function () {
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     for (let i = 0; i < arguments.length; i++) {
 //       O[len] = arguments[i];
@@ -105,7 +138,7 @@ console.log(sum);
 // if (!Array.prototype.myPop) {
 //   Array.prototype.myPop = function () {
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     if (len === 0) {
 //       return undefined;
@@ -132,7 +165,7 @@ console.log(sum);
 //     }
 
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     if (len <= 0) {
 //       return false;
@@ -155,7 +188,7 @@ console.log(sum);
 // if (!Array.prototype.myEvery) {
 //   Array.prototype.myEvery = function (callback) {
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     if (typeof callback !== "function") {
 //       throw new TypeError("Error callback fn -----");
@@ -177,7 +210,7 @@ console.log(sum);
 // if (!Array.prototype.myFind) {
 //   Array.prototype.myFind = function (callback) {
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     if (typeof callback !== "function") {
 //       throw new TypeError("Error callback fn -----");
@@ -199,7 +232,7 @@ console.log(sum);
 // if(!Array.prototype.myIncludes){
 //   Array.prototype.myIncludes = function(){
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     for (let i = 0; i < len; i++) {
 //       if(i in O && O[i] === arguments[0]){
@@ -216,7 +249,7 @@ console.log(sum);
 // if (!Array.prototype.myJoin) {
 //   Array.prototype.myJoin = function (separator) {
 //     let O = Object(this);
-//     let len = O.length >>> 0;
+//     let len = O.length;
 
 //     if (len === 0) {
 //       return "";
@@ -243,6 +276,3 @@ console.log(sum);
 // // let str2 = arr.join("-"); // "1-2-3-4"
 // // let str3 = arr.join(""); // "1234"
 // console.log(str);
-
-
-
