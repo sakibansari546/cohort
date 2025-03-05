@@ -1,6 +1,6 @@
 // Let's create our own Polyfills
 
-let arr = [1, 2, 3, 4, 5, 6];
+let arr = [1, 2, 3, 4, 5];
 
 // .Map----
 if (!Array.prototype.myMap) {
@@ -28,8 +28,9 @@ if (!Array.prototype.myMap) {
   };
 }
 
-// let myMapResult = arr.myMap((val) => val * 2);
-// console.log(myMapResult);
+let myMapResult = arr.myMap((val) => val * 2);
+console.log(myMapResult);
+console.log(arr);
 
 // .Filter----
 if (!Array.prototype.myFilter) {
@@ -88,24 +89,24 @@ if (!Array.prototype.myReduce) {
   };
 }
 
-let activity = [
-  { name: "Sakib", activityCount: 200 },
-  { name: "Piyush", activityCount: 300 },
-  { name: "Jatin", activityCount: 400 },
-  { name: "Alok", activityCount: 100 },
-];
+// let activity = [
+//   { name: "Sakib", activityCount: 200 },
+//   { name: "Piyush", activityCount: 300 },
+//   { name: "Jatin", activityCount: 400 },
+//   { name: "Alok", activityCount: 100 },
+// ];
 
-// let sum = arr.myReduce((acc, val) => (acc = acc + val), 0);
-// console.log(sum);
+let sum = arr.myReduce((acc, val) => (acc = acc + val));
+console.log(sum);
 
-let mostActive = activity.myReduce((acc, user) => {
-    if(acc.activityCount < user.activityCount){
-        acc = user;
-    }
-    return acc
-});
+// let mostActive = activity.myReduce((acc, user) => {
+//     if(acc.activityCount < user.activityCount){
+//         acc = user;
+//     }
+//     return acc
+// });
 
-console.log(mostActive);
+// console.log(mostActive);
 
 // .Push---------
 // if (!Array.prototype.myPush) {

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clouser</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+          --color-clifford: #da373d;
+        }
+      </style>
+
+</head>
+
+<body class="flex items-center justify-center h-[100vh] w-full bg-black text-white ">
+    <div>
+        <div class="header flex items-center text-2xl gap-5">
+            <input class="border border-white py-2 px-4" type="text" name="" id="colorValue"
+                placeholder="Enter your color">
+            <button id="createBtn" class="bg-white text-black py-2 px-5 cursor-pointer">Create</button>
+        </div>
+
+        <div id="allColorBtns" class="mt-22 flex  gap-5 items-center justify-center flex-wrap w-[400px]">
+            <!-- <button class="bg-white text-black py-2 px-5 cursor-pointer">Create</button> -->
+        </div>
+
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

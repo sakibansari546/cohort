@@ -100,3 +100,29 @@
 // Example: let result = arr.flatMap(item => [item, item * 2]);
 
 
+
+
+
+// let tasks = [
+// 	{ description: "Write report", completed: false, priority: 2},
+// 	{ description: "Send email", completed: true, priority: 3},
+// 	{ description: "Prepare presentation", completed: false, priority: 1},
+// ];
+
+
+// let pendingTasks = tasks.filter((task,idx)=>{
+//     return !task.completed
+// }).sort(pendingTasks);
+
+let movieRatings = [
+    { title: "Movie A", ratings: [4, 5, 3] },
+    { title: "Movie B", ratings: [5, 5, 4] },
+    { title: "Movie C", ratings: [3, 4, 2] },
+  ];
+
+  
+  let ratingArr = movieRatings.map((ratingObj)=>{
+    ratingObj.ratings.reduce((acc,rating)=> {
+        return acc = rating
+    })
+  })
