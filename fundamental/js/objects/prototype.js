@@ -1,13 +1,13 @@
 // // Ek object jisme humne "hasOwnProperty" ko custom property bana diya
-// const obj = {
-//   hasOwnProperty: "I am not a function",
-//   name: "Sakib",
-//   toString: "string",
-// };
+const obj = {
+  hasOwnProperty: "I am not a function",
+  name: "Sakib",
+  toString: "string",
+};
 
-// // Ab agar hum aise call karenge:
-// // console.log(obj.hasOwnProperty("name"));
-// // Yeh error dega ya unexpected result dega, kyunki ab "hasOwnProperty" ek function nahi hai.
+// Ab agar hum aise call karenge:
+console.log(obj.hasOwnProperty("name"));
+// Yeh error dega ya unexpected result dega, kyunki ab "hasOwnProperty" ek function nahi hai.
 
 // //
 // // Sahi tarika:
@@ -214,12 +214,12 @@ let menu = {
   title: "My menu",
 };
 
-console.log(menu);
+// console.log(menu);
 
 multiplyNumeric(menu);
 
 // console.log(typeof 9);
-console.log(menu);
+// console.log(menu);
 
 // after the call
 // menu = {
@@ -227,3 +227,10 @@ console.log(menu);
 //   height: 600,
 //   title: "My menu"
 // };
+
+
+
+
+
+
+

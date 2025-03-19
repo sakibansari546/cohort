@@ -10,33 +10,33 @@
 
 // // Create Method
 
-// const person = {
-//   name: "Ansari",
-//   greet() {
-//     console.log("Hello!");
-//   },
-// };
+const person = {
+  name: "Ansari",
+  greet() {
+    console.log("Hello!");
+  },
+};
 
-// const newPerson = Object.create(person);
-// newPerson.greet();
-// person.greet();
-// person.name = "Garima";
-// newPerson.name = "John";
-// console.log(newPerson.name);
-// console.log(person.name);
+const newPerson = Object.create(person);
+newPerson.greet();
+person.greet();
+person.name = "Garima";
+newPerson.name = "John";
+console.log(newPerson.name);
+console.log(person.name);
 
-// const newPerson = Object.create(person, {
-//   name: {
-//     value: "Sakib",
-//     enumerable: true,
-//   },
-//   age: {
-//     value: 18,
-//     enumerable: true,
-//   },
-// });
+const newPerson = Object.create(person, {
+  name: {
+    value: "Sakib",
+    enumerable: true,
+  },
+  age: {
+    value: 18,
+    enumerable: true,
+  },
+});
 
-// console.log(newPerson.name);
+console.log(newPerson.name);
 
 // // Entries
 const user = {
