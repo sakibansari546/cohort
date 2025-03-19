@@ -1,4 +1,0 @@
-Hey this branch for sakib and branch name is branching-practice
-
-pta nhi kyu mene pull req create ki is branch se to main branch me merge kr option hi nhi aa rha tha
-ek baar or try krta hu 
