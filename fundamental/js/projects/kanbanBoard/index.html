@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <!-- <div class="board">
+                <div class="board-header">
+                    <div class="board-head">
+                        <div class="board-heading">
+                            <div class="color-ring"></div>
+                            <h3>Todo</h3>
+                            <div class="task-count">2</div>
+                        </div>
+                        <div class="board-desc">
+                            <p>Description</p>
+                        </div>
+                    </div>
+                    <div class="board-right">
+                        <button class="delete-icon">
+                            &times;
+                        </button>
+                    </div>
+                </div>
+                <div id="todoTasks" class="tasks">
+                    <div draggable='true' class="task">
+                        <p>Work on project</p>
+                    </div>
+                    <div draggable='true' class="task">
+                        <p>Work on Backend</p>
+                    </div>
+                </div>
+                <button id="addTaskBtn" class="add-task-btn">Add Task +</button>
+            </div>
+
+            <div class="board">
+                <h3>In Progress</h3>
+                <div class="tasks">
+                </div>
+                <button id="addTaskBtn" class="add-task-btn">Add Task +</button>
+            </div>
+            <div class="board">
+                <h3>Done</h3>
+                <div class="tasks">
+
+                </div>
+                <button id="addTaskBtn" class="add-task-btn">Add Task +</button>
+            </div>
+            <div class="board">
+                <h3>Done</h3>
+                <div class="tasks">
+
+                </div>
+                <button id="addTaskBtn" class="add-task-btn">Add Task +</button>
+            </div> -->
+        </div>
+        <div class="add-board">
+            <button class="add-board-btn">+</button>
+        </div>
+    </div>
+
+
+    <div class="add-board-modal ">
+        <div class="modal">
+            <div class="close-icon">
+                &times;
+            </div>
+            <form class="add-board-modal-form">
+                <h3>Add Board</h3>
+                <!-- Title -->
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="title">
+                </div>
+                <!-- Theme/Color Options -->
+                <div class="form-group">
+                    <label for="color">Theme</label>
+                    <div class="color-options">
+                        <label class="color-label">
+                            <input type="radio" class="color-input" name="color" value="#ff0000">
+                            <span class="custom-radio" style="background-color: #ff0000;"></span>
+                        </label>
+                        <label class="color-label">
+                            <input type="radio" class="color-input" name="color" value="#00ff00">
+                            <span class="custom-radio" style="background-color: #00ff00;"></span>
+                        </label>
+                        <label class="color-label">
+                            <input type="radio" class="color-input" name="color" value="#0000ff">
+                            <span class="custom-radio" style="background-color: #0000ff;"></span>
+                        </label>
+                        <label class="color-label">
+                            <input type="radio" class="color-input" name="color" value="#ffff00">
+                            <span class="custom-radio" style="background-color: #ffff00;"></span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <input type="text" name="desc" id="desc" class="form-control" placeholder="description">
+                </div>
+                <!-- Submit Button -->
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Add Board</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <div class="add-task-modal">
+        <div class="task-modal">
+            <div class="close-icon">
+                &times;
+            </div>
+            <h3>Add Task</h3>
+            <form action="">
+                <div class="form-group">
+                    <label for="content">Task</label>
+                    <input type="text" id="taskInput" class="form-control" placeholder="content">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Add Task</button>
+                </div>
+            </form>
+        </div>
+    </div> -->
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
